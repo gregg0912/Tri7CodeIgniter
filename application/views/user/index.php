@@ -17,14 +17,14 @@
                     <tbody>
                         <?php foreach ($users as $user): ?>
                             <tr>
-                                <td scope="row"><?= $user["id"] ?></td>
-                                <td><?= $user["first_name"] ?></td>
-                                <td><?= $user["last_name"] ?></td>
-                                <td><?= $user["position"] ?></td>
-                                <td><?= $user["create_date"] ?></td>
+                                <td scope="row"><?= $user->id ?></td>
+                                <td><?= $user->first_name ?></td>
+                                <td><?= $user->last_name ?></td>
+                                <td><?= $user->position ?></td>
+                                <td><?= $user->created_date ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a href="<?= base_url('user/edit/' . $user->id) ?>" type="button" class="btn btn-warning">Edit</a>
+                                    <a href="<?= base_url('user/delete/' . $user->id) ?>" type="button" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
