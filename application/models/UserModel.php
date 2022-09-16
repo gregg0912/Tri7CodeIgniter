@@ -6,7 +6,7 @@ class UserModel extends CI_Model {
         $this->load->database();
     }
 
-    public function user_data()
+    public function users()
     {
         return array(
             array(
@@ -24,5 +24,10 @@ class UserModel extends CI_Model {
                 "create_date" => "2021-02-23"
             )
         );
+    }
+
+    public function store($data)
+    {
+        $this->db->insert('users', $data);
     }
 }

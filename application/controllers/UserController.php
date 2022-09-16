@@ -8,7 +8,7 @@ class UserController extends CI_Controller {
         $this->load->model('UserModel');
 
         $usermodel = new UserModel;
-        $this->data['users'] = $usermodel->user_data();
+        $this->data['users'] = $usermodel->users();
         $this->load->view('templates/header');
         $this->load->view('user/index', $this->data);
         $this->load->view('templates/footer');
@@ -19,5 +19,33 @@ class UserController extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('user/create.php');
         $this->load->view('templates/footer');
+    }
+
+    public function store()
+    {
+        $this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
+        $this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+        $this->form_validation->set_rules('position', 'Position', 'trim|required');
+
+        if ( $this->form_validation->run() )
+        {
+            $data = [
+                'first_name' => $this->input->post('first_name'),
+                'last_name' => $this->input->post('last_name'),
+                'position' => $this->input->post('position'),
+                'created_date' => date("Y-m-d")
+            ];
+
+            $this->load->model('UserModel');
+
+            $usermodel = new UserModel;
+            $usermodel->store($data);
+
+            $this->index();
+        }
+        else
+        {
+            $this->create();
+        }
     }
 }
