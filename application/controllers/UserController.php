@@ -93,7 +93,5 @@ class UserController extends CI_Controller {
         $this->load->model('UserModel');
         $usermodel = new UserModel;
         $usermodel->delete($id);
-
-        redirect(base_url());
     }
 }

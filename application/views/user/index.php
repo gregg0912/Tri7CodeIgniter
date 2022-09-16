@@ -24,7 +24,7 @@
                                 <td><?= $user->created_date ?></td>
                                 <td>
                                     <a href="<?= base_url('user/edit/' . $user->id) ?>" type="button" class="btn btn-warning">Edit</a>
-                                    <a href="<?= base_url('user/delete/' . $user->id) ?>" type="button" class="btn btn-danger">Delete</a>
+                                    <button type="button" class="btn btn-danger confirm-delete" value="<?= $user->id ?>" data-name="<?= $user->first_name." ".$user->last_name ?>">Delete</button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

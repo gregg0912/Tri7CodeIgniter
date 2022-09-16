@@ -57,4 +57,4 @@ $route['user/create'] = 'UserController/create';
 $route['user/store'] = 'UserController/store';
 $route['user/edit/(:num)'] = 'UserController/edit/$1';
 $route['user/update/(:num)'] = 'UserController/update/$1';
-$route['user/delete/(:num)'] = 'UserController/delete/$1';
+$route['user/delete/(:num)']['DELETE'] = 'UserController/delete/$1';
